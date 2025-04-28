@@ -15,10 +15,9 @@ logging.basicConfig(
     format="%(asctime)s - %(levelname)s - %(message)s"
 )
 
-# ✅ 加载图片模型（从本地加载）
-model_path = "/runpod-volume/hub/models--Marqo--marqo-fashionCLIP"
+# ✅ 加载图片模型（从 HuggingFace Hub 加载），不能自定义
 image_model, preprocess_train, preprocess_val = open_clip.create_model_and_transforms(
-    model_path,
+    "hf-hub:Marqo/marqo-fashionCLIP",
     precision="fp16"
 )
 image_model = image_model.cuda().eval()
